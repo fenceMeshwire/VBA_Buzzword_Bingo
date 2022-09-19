@@ -105,6 +105,7 @@ For intColumn = 1 To 5
       End If
     End If
   Next intRow
+  intCounter = 0
 Next intColumn
 
 End Function
@@ -132,6 +133,7 @@ For intRow = 1 To 5
       bleBingoHorizontal = False
     End If
   Next intColumn
+  intCounter = 0
 Next intRow
 
 check_result_horizontal = bleBingoHorizontal
