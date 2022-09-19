@@ -2,6 +2,9 @@ Option Explicit
 
 Private Sub Worksheet_BeforeRightClick(ByVal Target As Range, _
  Cancel As Boolean)
+ 
+Dim functions As New cls_functions
+Dim bleBingoHorizontal, bleBingoVertical, bleBingoDiagonal As Boolean
 
 Cancel = True
 
@@ -16,5 +19,7 @@ For Each rngCell In Target.Cells
     End If
   End If
 Next rngCell
+
+CallByName functions, "check_bingo_result", VbMethod
 
 End Sub
