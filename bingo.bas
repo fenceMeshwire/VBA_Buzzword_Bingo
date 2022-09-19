@@ -10,8 +10,11 @@ Dim rngCell, rngTargetCells As Range
 Set rngTargetCells = Range("A1:E5")
 
 For Each rngCell In Target.Cells
-  rngCell.Interior.ColorIndex = 4
-  Debug.Print rngCell
+  If rngCell.Column < 6 Then
+    If rngCell.Row < 6 Then
+      rngCell.Interior.ColorIndex = 4
+    End If
+  End If
 Next rngCell
 
 End Sub
