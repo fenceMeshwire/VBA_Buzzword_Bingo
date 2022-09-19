@@ -3,11 +3,11 @@ Option Explicit
 Public Function scale_print(wksSheet As Worksheet)
 
 With wksSheet
-    .PageSetup.PaperSize = xlPaperA4
-    .PageSetup.Orientation = xlLandscape
-    .PageSetup.Zoom = False
-    .PageSetup.FitToPagesWide = 1
-    .PageSetup.FitToPagesTall = 1
+  .PageSetup.PaperSize = xlPaperA4
+  .PageSetup.Orientation = xlLandscape
+  .PageSetup.Zoom = False
+  .PageSetup.FitToPagesWide = 1
+  .PageSetup.FitToPagesTall = 1
 End With
 
 End Function
@@ -136,8 +136,6 @@ For intRow = 1 To 5
   intCounter = 0
 Next intRow
 
-check_result_horizontal = bleBingoHorizontal
-
 End Function
 
 Public Function check_result_diagonal()
@@ -157,8 +155,6 @@ If bingo.Cells(1, 1).Interior.ColorIndex = 4 Then
           bleBingoDiagonal = True
           check_result_diagonal = bleBingoDiagonal
           Exit Function
-        Else
-          bleBingoDiagonal = False
         End If
       End If
     End If
@@ -174,13 +170,13 @@ If bingo.Cells(1, 5).Interior.ColorIndex = 4 Then
           bleBingoDiagonal = True
           check_result_diagonal = bleBingoDiagonal
           Exit Function
-        Else
-          bleBingoDiagonal = False
         End If
       End If
     End If
   End If
 End If
+
+check_result_diagonal = False
 
 End Function
 
@@ -192,11 +188,11 @@ Dim intColumn, intRow As Integer
 Dim wksSheet As Worksheet
 Set wksSheet = bingo
 
-If check_result_horizontal = True Then bleResult = True
-If check_result_vertical = True Then bleResult = True
-If check_result_diagonal = True Then bleResult = True
-
-If bleResult = True Then
+'If check_result_horizontal = True Then bleResult = True
+'If check_result_vertical = True Then bleResult = True
+'If check_result_diagonal = True Then bleResult = True
+ 
+If check_result_horizontal = True Or check_result_vertical = True Or check_result_diagonal = True Then
   MsgBox "BINGO!!!"
   If MsgBox("Do you want to restart the game?", vbYesNo) = vbYes Then
     Call create_bingo
