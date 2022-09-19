@@ -23,5 +23,7 @@ For intColumn = 1 To 5
 Next intColumn
 
 CallByName functions, "frame_area", VbMethod, wksSheet
+  
+wksSheet.Activate
 
 End Sub
