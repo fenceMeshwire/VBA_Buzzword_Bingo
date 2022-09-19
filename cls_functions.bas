@@ -80,11 +80,3 @@ With rngFrame
 End With
 
 End Function
-
-Public Function copy_save_close(wksSheet As Worksheet)
-
-wksSheet.Copy
-ActiveWorkbook.SaveAs (ThisWorkbook.Path & "\Bingo.xlsx")
-ActiveWorkbook.Close
-
-End Function
