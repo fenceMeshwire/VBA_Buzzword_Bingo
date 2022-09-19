@@ -10,6 +10,7 @@ Dim wksMaterial, wksSheet As Worksheet
 Set wksMaterial = wordlist
 Set wksSheet = bingo
 
+CallByName functions, "plausibility_check", VbMethod
 CallByName functions, "clear_area", VbMethod, wksSheet
 CallByName functions, "scale_print", VbMethod, wksSheet
 CallByName functions, "maintain_cell_dimensions", VbMethod, wksSheet
@@ -23,7 +24,7 @@ For intColumn = 1 To 5
 Next intColumn
 
 CallByName functions, "frame_area", VbMethod, wksSheet
-  
-wksSheet.Activate
+
+bingo.Activate
 
 End Sub
