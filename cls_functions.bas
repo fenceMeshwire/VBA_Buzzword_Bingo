@@ -12,6 +12,19 @@ End With
 
 End Function
 
+Public Function plausibility_check()
+
+Dim intRowMax As Integer
+
+intRowMax = wordlist.Cells(wordlist.Rows.Count, 1).End(xlUp).Row
+
+If wordlist.Cells(1, 1).Value = "" And intRowMax = 1 Then
+  MsgBox ("Please enter some buzzwords in order to start the game...")
+  End
+End If
+
+End Function
+
 Public Function maintain_cell_dimensions(wksSheet As Worksheet)
 
 Dim intRow, intColumn As Integer
