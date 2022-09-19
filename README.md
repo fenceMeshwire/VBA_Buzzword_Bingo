@@ -1,5 +1,5 @@
 # VBA_Buzzword_Bingo
-Concept of a so called "Buzzword Bingo" in VBA
+Concept of a so called 5x5 "Buzzword Bingo" in VBA.
 
 1. Create a table named "wordlist" (Sheets(1).Name = "wordlist").
 2. Create a table named "bingo" (Sheets(2).Name = "bingo").
