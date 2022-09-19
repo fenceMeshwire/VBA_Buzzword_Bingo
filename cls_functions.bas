@@ -80,3 +80,125 @@ With rngFrame
 End With
 
 End Function
+
+Public Function check_result_vertical()
+
+Dim bleBingoVertical As Boolean
+Dim intColumn, intRow As Integer
+Dim intCounter As Integer
+
+Dim wksSheet As Worksheet
+Set wksSheet = bingo
+
+' Vertical Bingo
+bleBingoVertical = False
+For intColumn = 1 To 5
+  For intRow = 1 To 5
+    If bingo.Cells(intRow, intColumn).Interior.ColorIndex = 4 Then
+      bleBingoVertical = True
+      intCounter = intCounter + 1
+      If intCounter = 5 Then
+        check_result_vertical = bleBingoVertical
+        Exit Function
+      Else
+        bleBingoVertical = False
+      End If
+    End If
+  Next intRow
+Next intColumn
+
+End Function
+
+Public Function check_result_horizontal()
+
+Dim bleBingoHorizontal As Boolean
+Dim intColumn, intRow As Integer
+Dim intCounter As Integer
+
+Dim wksSheet As Worksheet
+Set wksSheet = bingo
+
+' Horizontal Bingo
+For intRow = 1 To 5
+  For intColumn = 1 To 5
+    If bingo.Cells(intRow, intColumn).Interior.ColorIndex = 4 Then
+      bleBingoHorizontal = True
+      intCounter = intCounter + 1
+      If intCounter = 5 Then
+        check_result_horizontal = bleBingoHorizontal
+        Exit Function
+      End If
+    Else
+      bleBingoHorizontal = False
+    End If
+  Next intColumn
+Next intRow
+
+check_result_horizontal = bleBingoHorizontal
+
+End Function
+
+Public Function check_result_diagonal()
+
+Dim bleBingoDiagonal As Boolean
+Dim intColumn, intRow As Integer
+
+Dim wksSheet As Worksheet
+Set wksSheet = bingo
+
+' Diagonal Bingo top left to bottom right
+If bingo.Cells(1, 1).Interior.ColorIndex = 4 Then
+  If bingo.Cells(2, 2).Interior.ColorIndex = 4 Then
+    If bingo.Cells(3, 3).Interior.ColorIndex = 4 Then
+      If bingo.Cells(4, 4).Interior.ColorIndex = 4 Then
+        If bingo.Cells(5, 5).Interior.ColorIndex = 4 Then
+          bleBingoDiagonal = True
+          check_result_diagonal = bleBingoDiagonal
+          Exit Function
+        Else
+          bleBingoDiagonal = False
+        End If
+      End If
+    End If
+  End If
+End If
+
+' Diagonal Bingo bottom left to top right
+If bingo.Cells(1, 5).Interior.ColorIndex = 4 Then
+  If bingo.Cells(2, 4).Interior.ColorIndex = 4 Then
+    If bingo.Cells(3, 3).Interior.ColorIndex = 4 Then
+      If bingo.Cells(4, 2).Interior.ColorIndex = 4 Then
+        If bingo.Cells(5, 1).Interior.ColorIndex = 4 Then
+          bleBingoDiagonal = True
+          check_result_diagonal = bleBingoDiagonal
+          Exit Function
+        Else
+          bleBingoDiagonal = False
+        End If
+      End If
+    End If
+  End If
+End If
+
+End Function
+
+Public Function check_bingo_result()
+
+Dim bleResult As Boolean
+Dim intColumn, intRow As Integer
+
+Dim wksSheet As Worksheet
+Set wksSheet = bingo
+
+If check_result_horizontal = True Then bleResult = True
+If check_result_vertical = True Then bleResult = True
+If check_result_diagonal = True Then bleResult = True
+
+If bleResult = True Then
+  MsgBox "BINGO!!!"
+  If MsgBox("Do you want to restart the game?", vbYesNo) = vbYes Then
+    Call create_bingo
+  End If
+End If
+
+End Function
