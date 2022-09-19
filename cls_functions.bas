@@ -17,10 +17,10 @@ Public Function maintain_cell_dimensions(wksSheet As Worksheet)
 Dim intRow, intColumn As Integer
 Dim rngBingoArea As Range
 
-Set rngBingoArea = wksSheet.Range("A1:J10")
+Set rngBingoArea = wksSheet.Range("A1:E5")
 
-rngBingoArea.RowHeight = 50
-rngBingoArea.ColumnWidth = 15
+rngBingoArea.RowHeight = 100
+rngBingoArea.ColumnWidth = 30
 
 End Function
 
@@ -69,12 +69,12 @@ Public Function frame_area(wksSheet As Worksheet)
 Dim intRow, intColumn As Integer
 Dim rngFrame As Range
 
-Set rngFrame = wksSheet.Range(wksSheet.Cells(1, 1), wksSheet.Cells(10, 10))
+Set rngFrame = wksSheet.Range(wksSheet.Cells(1, 1), wksSheet.Cells(5, 5))
 
 With rngFrame
   .Borders(xlInsideHorizontal).LineStyle = xlContinuous
   .Borders(xlInsideVertical).LineStyle = xlContinuous
-  .BorderAround Weight:=xlThick, ColorIndex:=3
+  .BorderAround Weight:=xlThick, ColorIndex:=1
   .HorizontalAlignment = xlCenter
   .VerticalAlignment = xlCenter
 End With
