@@ -200,10 +200,6 @@ Dim intColumn, intRow As Integer
 
 Dim wksSheet As Worksheet
 Set wksSheet = bingo
-
-'If check_result_horizontal = True Then bleResult = True
-'If check_result_vertical = True Then bleResult = True
-'If check_result_diagonal = True Then bleResult = True
  
 If check_result_horizontal = True Or check_result_vertical = True Or check_result_diagonal = True Then
   MsgBox "BINGO!!!"
